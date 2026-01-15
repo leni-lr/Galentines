@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .heart {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .question {
+            font-size: 1.8em;
+            color: #333;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .yes-button {
+            background: green;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .yes-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .no-button {
+            background: red;
+            color: white;
+        }
+
+        .no-button:hover {
+            background: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Galentine?</h1>
+        
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes!</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+    </div>
+
+    <script>
+        const messages = [
+            "Bah pourquoi ?",
+            "Allez stp",
+            "Pas cool Goor"
+            "ça rimait avec amoor"
+            "là je le prend mal"
+            "oh stop"
+            "L'AUTRE BOUTON"
+            "ok c'est fini entre nous."
+        ];
+        
+        let messageIndex = 0;
+
+        function handleNoClick() {
+            const noButton = document.querySelector(".no-button");
+            const yesButton = document.querySelector(".yes-button");
+            
+            noButton.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+            
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = `${currentSize * 1.5}px`;
+        }
+
+        function handleYesClick() {
+            window.location.href = "yes_page.html";
+        }
+    </script>
+</body>
+</html>
